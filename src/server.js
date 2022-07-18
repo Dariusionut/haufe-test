@@ -23,6 +23,12 @@ const init = async function () {
         useUnifiedTopology: true
     });
 
+    await server.register([
+        {
+            plugin: require('./plugins/route-plugin')
+        }
+    ]);
+
     console.log('Successfully connected to the database: %s', Mongo.connection.db.databaseName);
 
     return server;
