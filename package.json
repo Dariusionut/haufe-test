@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Dariusionut/haufe-test/issues"
   },
-  "homepage": "https://github.com/Dariusionut/haufe-test#readme"
+  "homepage": "https://github.com/Dariusionut/haufe-test#readme",
+  "devDependencies": {
+    "@hapi/boom": "^10.0.0",
+    "@hapi/hapi": "^20.2.2",
+    "mongoose": "^6.4.5",
+    "nodemon": "^2.0.19"
+  }
 }
