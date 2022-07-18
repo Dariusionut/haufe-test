@@ -1,0 +1,19 @@
+{
+  "name": "haufe-test",
+  "version": "1.0.0",
+  "description": "Haufe test",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dariusionut/haufe-test.git"
+  },
+  "author": "Darius Tinculescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dariusionut/haufe-test/issues"
+  },
+  "homepage": "https://github.com/Dariusionut/haufe-test#readme"
+}
