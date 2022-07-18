@@ -20,7 +20,7 @@
   "devDependencies": {
     "@hapi/boom": "^10.0.0",
     "@hapi/hapi": "^20.2.2",
-    "mongoose": "^6.4.5",
+    "mongoose": "^5.13.14",
     "nodemon": "^2.0.19",
     "read-yaml-file": "^2.1.0"
   }
