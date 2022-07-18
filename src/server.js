@@ -1,12 +1,16 @@
 'use strict';
 
+const yml = require('read-yaml-file');
 const Hapi = require('@hapi/hapi');
 
 const init = async function () {
 
+    const env = await yml('./config.yaml');
+    const srvData = env.server;
+
     const server = Hapi.server({
-        host: '0.0.0.0',
-        port: '8000'
+        host: srvData.host,
+        port: srvData.port
     });
 
     await server.start();
