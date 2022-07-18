@@ -12,8 +12,13 @@ const userSchema = new Mongo.Schema({
     },
     email: {
         type: String,
-        required: [true, 'The email address is mandatory!']
+        required: [true, 'The email address is mandatory!'],
+        unique: [true, `The chosen email already exists! Please select another one!`]
+    },
+    password: {
+        type: String,
+        required: [true, 'The password is mandatory!']
     }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Users", userSchema);
