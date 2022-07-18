@@ -1,8 +1,9 @@
 const User = require('../models/user');
+const Encrypt = require('../security/bcrypt-utils');
 
 module.exports = {
     find: async (criteria) => await find(criteria),
-    save: async (user) =>  save(user)
+    save: async (user) => save(user)
 }
 
 async function find(criteria) {
@@ -10,7 +11,7 @@ async function find(criteria) {
 }
 
 async function save(user) {
+    user.password = await Encrypt.cryptPassword(user.password);
     const dbUser = new User(user);
-    return dbUser.save();
+    return await dbUser.save();
 }
-
