@@ -3,7 +3,7 @@ services:
   haufe-test:
     container_name: hapi-node-js
     restart: always
-    build: .
+    build: ..
     ports:
       - '5000:5000'
     depends_on:
