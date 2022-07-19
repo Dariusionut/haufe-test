@@ -6,24 +6,15 @@ const Mongo = require('mongoose');
 
 const init = async function () {
 
-    const env = await yml('./config.yaml');
-    const srvData = env.server;
+    const env = await yml('./config.yml');
 
-    const server = Hapi.server({
-        host: srvData.host,
-        port: srvData.port
-    });
+    const server = Hapi.server(env.server.options);
+
+    await server.register([{plugin: require('./plugins/route-plugin')}]);
 
     await server.start();
 
-    const db_options = env.db.options;
-    await Mongo.connect(env.db.url, db_options);
-
-    await server.register([
-        {
-            plugin: require('./plugins/route-plugin')
-        }
-    ]);
+    await Mongo.connect(env.db.url, env.db.options);
 
     console.log('Successfully connected to the database: %s', Mongo.connection.db.databaseName);
 
