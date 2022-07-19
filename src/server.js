@@ -14,8 +14,7 @@ const init = async function () {
 
     await server.start();
 
-    const db_options = env.db.options;
-    await Mongo.connect(env.db.url, db_options);
+    await Mongo.connect(env.db.url, env.db.options);
 
     console.log('Successfully connected to the database: %s', Mongo.connection.db.databaseName);
 
