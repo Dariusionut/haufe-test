@@ -1,0 +1,18 @@
+version: '2'
+services:
+  haufe-test:
+    container_name: hapi-node-js
+    restart: always
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+  mongodb:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+    restart: 'on-failure'
