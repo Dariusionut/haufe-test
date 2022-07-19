@@ -2,7 +2,7 @@ const Bcrypt = require("bcrypt");
 
 module.exports = Encrypt = {
 
-    cryptPassword: (password) =>
+    hashPassword: (password) =>
         Bcrypt.genSalt(10)
             .then((salt => Bcrypt.hash(password, salt)))
             .then(hash => hash),
