@@ -1,7 +1,7 @@
 version: '2'
 services:
   haufe-test:
-    container_name: docker-node-mongo
+    container_name: hapi-node-js
     restart: always
     build: .
     ports:
