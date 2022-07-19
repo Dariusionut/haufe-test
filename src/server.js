@@ -16,12 +16,8 @@ const init = async function () {
 
     await server.start();
 
-    await Mongo.connect(env.db.url, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true
-    });
+    const db_options = env.db.options;
+    await Mongo.connect(env.db.url, db_options);
 
     await server.register([
         {
