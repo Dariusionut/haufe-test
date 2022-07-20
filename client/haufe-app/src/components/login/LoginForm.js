@@ -1,6 +1,6 @@
 import './LoginForm.css';
-
 import {useState} from "react";
+import {Link} from 'react-router-dom';
 
 export default function LoginForm() {
 
@@ -29,15 +29,12 @@ export default function LoginForm() {
                     </div>
 
                     <div>
-                        <input type="submit" className='btn btn-primary btn-lg w-100' value="LOGIN"/>
+                        <Link to='/home' className='btn btn-primary btn-lg w-100'>Login</Link>
                     </div>
                 </form>
                 <hr/>
-                <div className="signup mb-sm-1">Don't have account?
+                <div className="signup">Don't have account? <br/>
                     <a href="#">Signup Now</a>
-                </div>
-                <div className="text-center">
-                    <a href="#" className='link-light'>Forgot Password?</a>
                 </div>
             </div>
         </div>
