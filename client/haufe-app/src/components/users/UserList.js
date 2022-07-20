@@ -1,7 +1,8 @@
-import './UserList.scss'
+import './User.scss'
 import axios from "axios";
 import {Component} from "react";
 import Header from "../header/Header";
+import {Link} from "react-router-dom";
 
 const api = axios.create({
     baseURL: 'http://localhost:5000/api/user'
@@ -39,9 +40,9 @@ export default class UserList extends Component {
                         </div>
                         <hr/>
                         <div className='btn-toolbar mb-sm-2 '>
-                            <button type='butotn' title='Add dummy data' className='btn btn-lg btn-primary'>
+                            <Link to='/user/add' title='Add dummy data' className='btn btn-lg btn-primary'>
                                 <i className='fas fa-plus'></i>&nbsp;Add user
-                            </button>
+                            </Link>
                         </div>
                     </section>
                     <table className='table table-bordered table-striped table-hover shadow-lg '>

@@ -17,7 +17,7 @@ export default function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-md-auto gap-2">
                             <li className="nav-item rounded">
-                                <Link to='/users' title='Dummy data' className="nav-link"><i
+                                <Link to='/user/list' title='Dummy data' className="nav-link"><i
                                     className="bi bi-people-fill me-2"></i>Users</Link>
                             </li>
                             <li className='nav-item rounded'>
