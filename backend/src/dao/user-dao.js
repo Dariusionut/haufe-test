@@ -4,11 +4,16 @@ const Encrypt = require('../security/bcrypt-utils');
 module.exports = {
     find: async (criteria) => await find(criteria),
     save: async (user) => await save(user),
-    deleteByEmail: async (email) => await deleteByEmail(email)
+    deleteByEmail: async (email) => await deleteByEmail(email),
+    findOne: async (criteria) => await findOne(criteria)
 }
 
 async function find(criteria) {
     return User.find(criteria);
+}
+
+async function findOne(criteria) {
+    return User.findOne(criteria);
 }
 
 function deleteByEmail(email) {
