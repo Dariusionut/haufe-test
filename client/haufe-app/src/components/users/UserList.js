@@ -27,9 +27,13 @@ export default class UserList extends Component {
     }
 
     async deleteByEmail(email) {
-        await axios.delete(`http://localhost:5000/api/user/delete/${email}`);
-        document.getElementById(email).remove();
-        console.log(`Successfully removed user with email: %s`, email);
+        if (window.confirm(`Are you sure you want to remove user with email ${email}?`)) {
+            await axios.delete(`http://localhost:5000/api/user/delete/${email}`);
+            document.getElementById(email).remove();
+            console.log(`Successfully removed user with email: %s`, email);
+        } else {
+            return false;
+        }
     }
 
     render() {
