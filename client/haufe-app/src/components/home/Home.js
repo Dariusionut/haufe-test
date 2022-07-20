@@ -8,7 +8,9 @@ export default function Home() {
         <div>
             <Header/>
             <div className='container'>
-                <h1>Home page</h1>
+                <div className='alert alert-primary text-center'>
+                    <h1>Home page</h1>
+                </div>
             </div>
         </div>
     );
