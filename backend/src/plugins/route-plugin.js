@@ -1,4 +1,6 @@
 const UserDao = require('../dao/user-dao');
+const DbUtils = require('../dao/db-utils');
+const Boom = require('@hapi/boom');
 
 module.exports = {
     name: 'myPlugin',
@@ -25,6 +27,24 @@ module.exports = {
                         }).catch(function (err) {
                             return {message: 'Cannot save user!', error: err.errors}
                         });
+                }
+            },
+            {
+                method: 'GET',
+                path: '/api/db/connection',
+                handler: function (req, h) {
+
+                    const dbCon = DbUtils.isConnected();
+
+                    if (dbCon !== 1) {
+                        throw Boom.internal('Database is not connected!');
+                    }
+
+                    return h.response({
+                        dbState: dbCon,
+                        dbName: DbUtils.dbName(),
+                        dbHost: DbUtils.dbHost()
+                    }).code(200);
                 }
             }
         ]);
