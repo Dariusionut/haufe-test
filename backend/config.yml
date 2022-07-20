@@ -2,6 +2,8 @@ server:
   options:
     port: 5000
     host: '0.0.0.0'
+    routes:
+      cors: true
 db:
   url: 'mongodb://localhost:27017/haufe_test'
   options:
