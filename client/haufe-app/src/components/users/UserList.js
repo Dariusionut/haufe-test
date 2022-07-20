@@ -26,7 +26,14 @@ export default class UserList extends Component {
             });
     }
 
+    async deleteByEmail(email) {
+        await axios.delete(`http://localhost:5000/api/user/delete/${email}`);
+        document.getElementById(email).remove();
+        console.log(`Successfully removed user with email: %s`, email);
+    }
+
     render() {
+        const userLength = this.state.users.length;
 
         return (
             <main>
@@ -45,27 +52,43 @@ export default class UserList extends Component {
                             </Link>
                         </div>
                     </section>
-                    <table className='table table-bordered table-striped table-hover shadow-lg '>
-                        <thead className='table-dark'>
-                        <tr>
-                            <th>#</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Email</th>
-                        </tr>
-                        </thead>
-                        <tbody className='table-success'>
-                        {this.state.users.map((user, index) => {
-                            return (<tr key={index}>
-                                <td>{index + 1}</td>
-                                <td>{user.fName}</td>
-                                <td>{user.lName}</td>
-                                <td>{user.email}</td>
-                            </tr>);
-                        })}
-                        </tbody>
+                    {userLength > 0 ? (
+                        <table className='table table-bordered table-striped table-hover shadow-lg '>
+                            <thead className='table-dark'>
+                            <tr>
+                                <th>#</th>
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Email</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody className='table-success'>
+                            {this.state.users.map((user, index) => {
+                                return (<tr key={index} id={user.email}>
+                                    <td>{index + 1}</td>
+                                    <td>{user.fName}</td>
+                                    <td>{user.lName}</td>
+                                    <td>{user.email}</td>
+                                    <td className='text-center'>
+                                        <button type='button'
+                                                className='btn btn-danger'
+                                                title={`Delete ${user.lName} ${user.fName}`}
+                                                onClick={async () => await this.deleteByEmail(user.email)}
+                                        >
+                                            <i className='fas fa-trash'></i>
+                                        </button>
+                                    </td>
+                                </tr>);
+                            })}
+                            </tbody>
 
-                    </table>
+                        </table>
+                    ) : (
+                        <div className='text-center mt-sm-5 shadow-lg bg-info rounded-3 p-sm-3'>
+                            <h1 className='text-danger'>Please add at least one user in order to render the table!</h1>
+                        </div>
+                    )}
                 </section>
             </main>
         );
