@@ -21,12 +21,23 @@ module.exports = {
                 path: `/api/user/save`,
                 handler: async function (req) {
                     const userBody = req.payload
-                    return UserDao.save(userBody)
-                        .then(function (data) {
-                            return data
-                        }).catch(function (err) {
-                            return {message: 'Cannot save user!', error: err.errors}
-                        });
+                    return await UserDao.save(userBody);
+                }
+            },
+            {
+                method: 'DELETE',
+                path: '/api/user/delete/{email}',
+                handler: async function (req, h) {
+
+                    const email = req.params['email'];
+                    const foundUser = await UserDao.findOne({email: {$eq: email}});
+
+                    if (foundUser !== null) {
+                        await UserDao.deleteByEmail(email);
+                        return h.response(`Successfully removed user with email = ` + email).code(200);
+                    } else {
+                        return h.response(`Unable to remove user with email = ` + email).code(500);
+                    }
                 }
             },
             {
