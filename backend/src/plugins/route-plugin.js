@@ -57,6 +57,14 @@ module.exports = {
                         dbHost: DbUtils.dbHost()
                     }).code(200);
                 }
+            },
+            {
+                method: 'GET',
+                path: '/api/db/aggregationTime',
+                handler: async function () {
+                    console.log("-----------------getAggregationTime");
+                    return await UserDao.aggregationTime();
+                }
             }
         ]);
     }

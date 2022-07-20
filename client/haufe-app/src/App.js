@@ -5,6 +5,7 @@ import NotFound from "./components/errors/NotFound";
 import Home from "./components/home/Home";
 import UserList from "./components/users/UserList";
 import UserForm from "./components/users/UserForm";
+import Aggregation from "./components/aggregation/Aggregation";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                 <Route exact path='/home' element={<Home/>}/>
                 <Route exact path='/user/add' element={<UserForm/>}/>
                 <Route exact path='/user/list' element={<UserList/>}/>
+                <Route exact path='/aggregation' element={<Aggregation/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
