@@ -20,6 +20,10 @@ export default function Header() {
                                 <Link to='/user/list' title='Dummy data' className="nav-link"><i
                                     className="bi bi-people-fill me-2"></i>Users</Link>
                             </li>
+                            <li className="nav-item rounded">
+                                <Link to='/aggregation' title='Aggregation time' className="nav-link"><i
+                                    className="bi bi-people-fill me-2"></i>Aggregation</Link>
+                            </li>
                             <li className='nav-item rounded'>
                                 <Link to='/login' title='Log out' className="nav-link"><i
                                     className="bi bi-people-fill me-2"></i>Log out</Link>
