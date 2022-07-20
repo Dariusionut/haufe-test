@@ -1,0 +1,26 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css?family=Advent Pro');
+
+header.main-header {
+
+  font-family: Advent Pro, sans-serif;
+
+  .navbar-brand {
+    background-image: url("https://pbs.twimg.com/profile_images/988347665535635456/WeYUeCAL_400x400.jpg");
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 48px;
+    height: 48px;
+
+  }
+
+  .navbar-nav {
+    .nav-item {
+      &:hover {
+        background-color: rgba(180, 190, 203, 0.4);
+      }
+    }
+  }
+}
