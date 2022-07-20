@@ -30,6 +30,17 @@ module.exports = {
                 }
             },
             {
+                method: 'DELETE',
+                path: '/api/user/delete/{email}',
+                handler: async function (req) {
+
+                    const email = req.params['email'];
+
+                    return await UserDao.deleteByEmail(email);
+
+                }
+            },
+            {
                 method: 'GET',
                 path: '/api/db/connection',
                 handler: function (req, h) {
